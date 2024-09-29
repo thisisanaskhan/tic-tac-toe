@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+   
+
+}
+.player-info{
+    background-color: grey;
+    top: 2rem;
+    padding: 0.3rem 4rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(121, 120, 120);
+    position: absolute;
+
+}
+.tic-tac-toe{
+    width: 90%;
+    max-width: 20rem;
+    background-color: grey;
+    border-radius: 1rem;
+    border: 1px solid rgb(121, 120, 120);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    aspect-ratio: 1/1;
+    
+}
+.box{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+.box1, .box2,.box4,.box5 {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+} 
+.box3,.box6{
+    border-bottom: 2px solid black;
+}
+.box7,.box8{
+    border-right:2px solid black
+}
+.btn{
+    background-color: grey;
+    bottom: 3rem;
+    padding: 0.3rem 4rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(121, 120, 120);
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    
+}
+.btn.active{
+    display: flex;
+}
+
+.win{
+    background-color: green;
+}
+ 
