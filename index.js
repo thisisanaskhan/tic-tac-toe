@@ -1,11 +1,11 @@
-const boxes=document.querySelectorAll(".boxes");
+const boxes=document.querySelectorAll(".box");
 const newGamebtn=document.querySelector(".btn");
 const gameInfo=document.querySelector(".player-info")
 
 let currentPlayer;
 let gameGrid;
 
-const winningPosition=[
+const winningPositions=[
     [0,1,2],
     [3,4,5],
     [6,7,8],
@@ -23,6 +23,13 @@ const winningPosition=[
 function initGame(){
     currentPlayer="X";
     gameGrid=["","","","","","","","",""];
+    boxes.forEach((box,index)=>{
+        box.innerText="";
+        boxes[index].style.pointerEvents="all";
+
+        box.classList=`box box${index+1}`;
+
+    });
     newGamebtn.classList.remove("active");
     gameInfo.innerText=`Current Player - ${currentPlayer}`;
 }
@@ -32,7 +39,8 @@ initGame();
 
 function swapTurn() {
     if(currentPlayer==="X"){
-        currentPlayer==="O";
+        currentPlayer="O";
+        boxes.style.color="blue";
     }
     else{
         currentPlayer="X";
@@ -40,6 +48,50 @@ function swapTurn() {
     gameInfo.innerText=`Current Player - ${currentPlayer}`;
 }
 
+function checkGameOver(){
+    let answer="";
+
+    winningPositions.forEach((position) =>{
+        if((gameGrid[position[0]]!==""||gameGrid[position[1]]!==""||gameGrid[position[2]]!=="")&&(gameGrid[position[0]]===gameGrid[position[1]])&&(gameGrid[position[1]]===gameGrid[position[2]])) {
+
+            if(gameGrid[position[0]]==="X")
+                answer="X";
+               else
+                 answer="O"; 
+               
+            boxes.forEach((box)=>{
+                box.style.pointerEvents="none";
+            })
+
+            boxes[position[0]].classList.add("win");
+            boxes[position[1]].classList.add("win");
+            boxes[position[2]].classList.add("win");
+              
+                
+        
+            }
+
+    });
+
+    if(answer!==""){
+        gameInfo.innerText=`Winner - ${answer}`;
+        newGamebtn.classList.add("active");
+        return;
+    }
+
+    let fillCount=0;
+    gameGrid.forEach((box)=>{
+        if(box!=="")
+            fillCount++;
+    });
+
+    if (fillCount===9){
+        gameInfo.innerText="Game Tied !";
+        newGamebtn.classList.add("active");
+    }
+
+
+}
 function handleClick(index){
     if(gameGrid[index]===""){
         boxes[index].innerText=currentPlayer;
@@ -61,3 +113,5 @@ boxes.forEach((box,index) => {
         handleClick(index);
     })
 }); 
+
+newGamebtn.addEventListener("click",initGame);

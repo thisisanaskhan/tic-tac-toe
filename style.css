@@ -11,11 +11,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: linear-gradient(90deg, rgba(29, 0, 255, 1) 0%, rgba(217, 34, 203, 1) 100%, rgba(0, 128, 0, 1) 100%);
+}
     
 
-   
-
-}
 .player-info{
     background-color: grey;
     top: 2rem;
@@ -23,6 +22,12 @@
     border-radius: 1rem;
     border: 1px solid rgb(121, 120, 120);
     position: absolute;
+    background-color: rgb(15, 142, 254);
+    font-size: larger;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .tic-tac-toe{
@@ -35,8 +40,9 @@
     display: grid;
     grid-template-columns:repeat(3,1fr) ;
     aspect-ratio: 1/1;
-    
+    background-color: black;  
 }
+
 .box{
     position: relative;
     width: 100%;
@@ -46,34 +52,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
+    color: rgb(254, 15, 71);
 }
+
 .box1, .box2,.box4,.box5 {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
 } 
+
 .box3,.box6{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
+
 .box7,.box8{
-    border-right:2px solid black
+    border-right:2px solid white;
 }
+
 .btn{
-    background-color: grey;
+    background-color: rgb(206, 250, 61);
     bottom: 3rem;
-    padding: 0.3rem 4rem;
+    padding: 1rem 5.4rem;
     border-radius: 1rem;
     border: 1px solid rgb(121, 120, 120);
     position: absolute;
     cursor: pointer;
-    display: none;
-    
+    display: none;   
+    font-size: larger;
+   
+      
 }
+
 .btn.active{
     display: flex;
 }
 
 .win{
-    background-color: green;
+    background-color: rgb(175, 255, 246);
 }
  
