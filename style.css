@@ -89,4 +89,6 @@
 .win{
     background-color: rgb(175, 255, 246);
 }
- 
+.tied{
+    background-color: whitesmoke;
+}

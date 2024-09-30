@@ -32,6 +32,7 @@ function initGame(){
     });
     newGamebtn.classList.remove("active");
     gameInfo.innerText=`Current Player - ${currentPlayer}`;
+    gameInfo.classList.remove("tied");
 }
 
 
@@ -40,7 +41,9 @@ initGame();
 function swapTurn() {
     if(currentPlayer==="X"){
         currentPlayer="O";
-        boxes.style.color="blue";
+        
+        
+       
     }
     else{
         currentPlayer="X";
@@ -66,6 +69,7 @@ function checkGameOver(){
             boxes[position[0]].classList.add("win");
             boxes[position[1]].classList.add("win");
             boxes[position[2]].classList.add("win");
+            gameInfo.classList.add("win");
               
                 
         
@@ -87,7 +91,9 @@ function checkGameOver(){
 
     if (fillCount===9){
         gameInfo.innerText="Game Tied !";
+        gameInfo.classList.add("tied");
         newGamebtn.classList.add("active");
+       
     }
 
 
@@ -115,3 +121,4 @@ boxes.forEach((box,index) => {
 }); 
 
 newGamebtn.addEventListener("click",initGame);
+
